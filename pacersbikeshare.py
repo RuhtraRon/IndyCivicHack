@@ -10,4 +10,4 @@ print gbfs['ttl']
 for u in gbfs['data']['en']['feeds']:
 	#print u['url']
 	response = requests.get(u['url']).json()
-	print response
+	print json.dumps(response, indent=4, separators=(',', ': '))
