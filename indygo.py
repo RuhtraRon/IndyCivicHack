@@ -29,8 +29,11 @@ selected_route = input('Select Route ID: ')
 
 for entity in feed_TU.entity:
 	if entity.HasField('trip_update'):
-		if entity.trip_update.trip.route_id == str(selected_route):
-			print entity.trip_update.trip.route_id + ' ' + entity.trip_update.trip.trip_id + ' ' + entity.trip_update.trip.start_time
+		if selected_route != 0:
+			if entity.trip_update.trip.route_id == str(selected_route):
+				print entity.trip_update.trip.route_id + ' ' + entity.trip_update.trip.trip_id + ' ' + entity.trip_update.trip.start_time
+		else:
+			print entity.trip_update
 
 for entity in feed_VP.entity:
 	print entity.id + '\t' + str(entity.vehicle.trip.trip_id) + '\t' +str(entity.vehicle.position.latitude) + '\t' + str(entity.vehicle.position.longitude)
